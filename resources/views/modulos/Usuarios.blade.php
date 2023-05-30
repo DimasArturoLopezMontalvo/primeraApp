@@ -10,7 +10,7 @@
             <div class="box">
                 <div class="box-body">
                     <div class="box-header">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#CrearUsuario">Crear nuevo</button>
+                        <button style="background-color: #FFAF33; color: white; border: 2px #FFAF33;" class="btn btn-primary" data-toggle="modal" data-target="#CrearUsuario">Crear nuevo</button>
                     </div>
                     <br>
                     <table class="table table-bordered table-hover table-striped dtUsers">
@@ -76,6 +76,10 @@
                                 <input type="text" class="form-control input-lg" name="name" required="">
                             </div>
                             <div class="form-group">
+                                <h2>Documento:</h2>
+                                <input type="text" class="form-control input-lg" name="documento" required="">
+                            </div>
+                            <div class="form-group">
                                 <h2>Email:</h2>
                                 <input type="text" class="form-control input-lg" name="email" required="">
                             </div>
@@ -86,8 +90,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary">Crear</button>
-                        <button type="submit" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        <button style="background-color: #FFAF33; color: white; border: 2px #FFAF33; type="submit" class="btn btn-primary">Crear</button>
+                        <button style="background-color: #FFAF33; color: white; border: 2px #FFAF33; type="submit" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                     </div>
                 </form>
             </div>
@@ -128,8 +132,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-success">Modificar</button>
-                        <button type="submit" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                        <button style="background-color: #FFAF33; color: white; border: 2px #FFAF33; type="submit" class="btn btn-success">Modificar</button>
+                        <button style="background-color: #FFAF33; color: white; border: 2px #FFAF33; type="submit" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
                     </div>
                 </form>
             </div>

@@ -3,7 +3,7 @@
 @section('contenido')
   <div class="content-wrapper">
   	<section class="content-header">
-  		<h1>Mi Perfil</h1>
+  		<h1>perfil</h1>
     </section>
     
     <section class="content">
@@ -32,7 +32,7 @@
                         <br>
                         @if(auth()->user()->foto=="")
 
-                            <img src="{{ url('../storage/app/public/lentes.png') }}" width="150px" height="150px" alt="User Image">
+                            <img src="{{ url('../storage/app/public/artificial.jpg') }}" width="150px" height="150px" alt="User Image">
                             @else
                             <img src="{{ url('storage/'.auth()->user()->foto) }}" width="150px" height="150px" alt="User Image">
                             @endif
@@ -40,7 +40,7 @@
                   </div>
               </div> 
                  <div class="box-footer">
-                    <button type="submit" class="btn btn-success btn-lg pull-right">Guardar</button>
+                    <button style="background-color: #FFAF33; color: white; border: 2px #FFAF33; type="submit" class="btn btn-success btn-lg pull-right">Guardar</button>
                  </div>
                  </form> 
     		</div>    	

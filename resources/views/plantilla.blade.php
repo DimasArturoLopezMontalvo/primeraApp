@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Libreria</title>
+  <title>EDR-EVENTOS</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -96,6 +96,7 @@
 <script src="http://localhost/primeraApp/public/plugins/inputmask/jquery.inputmask.js"></script>
 <script src="http://localhost/primeraApp/public/plugins/inputmask/jquery.inputmask.date.extensions.js"></script>
 <script src="http://localhost/primeraApp/public/plugins/inputmask/jquery.inputmask.extensions.js"></script>
+
 
 <!-- SweetAlert2 scripts -->
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -202,7 +203,4 @@
     $('#EditarCliente').modal('toggle');
   }); 
 </script>
-@endif  
-
-</body>
-</html>
+@endif 

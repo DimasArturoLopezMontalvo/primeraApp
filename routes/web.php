@@ -41,3 +41,6 @@ Route::post('/Clientes', [ClientesController::class, 'store']);
 Route::get('Editar-Cliente/{id}', [ClientesController::class, 'edit']);
 Route::put('actualizar-Cliente/{id}', [ClientesController::class,'update']);
 Route::get('Eliminar-Cliente/{id}', [ClientesController::class, 'destroy']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
