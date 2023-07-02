@@ -3,7 +3,7 @@
 @section('contenido')
   <div class="content-wrapper">
   	<section class="content-header">
-  		<h1>perfil</h1>
+  		<h1>Mi Perfil</h1>
     </section>
     
     <section class="content">
@@ -16,31 +16,22 @@
                     <div class="col-md-6 col-xs-12">              
                         <h2>Nombre: </h2>
                         <input type="text" name="name" value="{{auth()->user()->name}}" class="input-lg">
-                        <h2>Documento: </h2>
-                        <input type="text" name="documento" value="{{auth()->user()->documento}}" class="input-lg">           
+                        <h2>Departamento: </h2>
+                        <input type="text" name="departamento" value="{{auth()->user()->departamento}}" class="input-lg">
+                        <h2>Numero de Colaborador: </h2>
+                        <input type="text" name="NumColab" value="{{auth()->user()->NumColab}}" class="input-lg">           
                     </div>
                     <div class="col-md-6 col-xs-12">              
                         <h2>Email: </h2>
                         <input type="text" name="email" value="{{auth()->user()->email}}" class="input-lg">
                         <h2>Password: </h2>
                         <input type="text" name="passwordN" value="" class="input-lg">           
-                        <input type="hidden" name="password" value="{{auth()->user()->password}}" class="input-lg">           
-
-                        <h2>Foto de perfil</h2>
-                        <br>
-                        <input type="store" name="fotoPerfil" id="fotoPerfil">
-                        <br>
-                        @if(auth()->user()->foto=="")
-
-                            <img src="{{ url('../storage/app/public/artificial.jpg') }}" width="150px" height="150px" alt="User Image">
-                            @else
-                            <img src="{{ url('storage/'.auth()->user()->foto) }}" width="150px" height="150px" alt="User Image">
-                            @endif
+                        <input type="hidden" name="password" value="{{auth()->user()->password}}" class="input-lg">
                     </div>
                   </div>
               </div> 
                  <div class="box-footer">
-                    <button style="background-color: #FFAF33; color: white; border: 2px #FFAF33; type="submit" class="btn btn-success btn-lg pull-right">Guardar</button>
+                    <button type="submit" class="btn btn-success btn-lg pull-right">Guardar</button>
                  </div>
                  </form> 
     		</div>    	

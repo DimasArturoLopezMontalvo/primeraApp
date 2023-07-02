@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Route;
 
+use App\Models\Inicio;
+use Illuminate\Http\Request;
 
 class InicioController extends Controller
 {

@@ -25,6 +25,7 @@ return new class extends Migration
             $table->text('pax');
             $table->text('asistencia');
             $table->text('observaciones');
+            $table->text('firma')->nullable();
         });
     }
 

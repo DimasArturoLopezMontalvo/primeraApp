@@ -43,54 +43,51 @@ class UsuariosController extends Controller
             if(request('passwordN')){
                 $datos = request()->validate([
                     'name'=>['required', 'string', 'max:255'],
+                    'departamento'=>['required', 'string', 'max:255'],
+                    'NumColab' => ['required','string','max:255'],
                     'email'=>['required', 'email', 'unique:users'],
                     'passwordN'=>['required', 'string', 'min:3']
                 ]);
             }else{
                 $datos=request()->validate([
                     'name'=>['required', 'string', 'max:255'],
-                    'email'=>['required', 'email', 'unique:users']
+                    'departamento'=>['required', 'string', 'max:255'],
+                    'NumColab' => ['required','string','max:255'],
+                    'email'=>['required', 'email', 'unique:users'],
+                    'passwordN'=>['required', 'string', 'min:3']
                 ]);
             }
         }else{
             if(request('passwordN')){
                 $datos = request()->validate([
                     'name'=>['required', 'string', 'max:255'],
+                    'departamento'=>['required', 'string', 'max:255'],
                     'email'=>['required', 'email'],
                     'passwordN'=>['required', 'string', 'min:3']
                 ]);
             }else{
                 $datos=request()->validate([
                     'name'=>['required', 'string', 'max:255'],
+                    'departamento'=>['required', 'string', 'max:255'],
                     'email'=>['required', 'email']
                 ]);
             }
          }
-         //Si se requiere actualizar el documento
-         if (request('documento')){
-            $documento=$request['documento'];
+         //Si se requiere actualizar el numero de colaborador
+         if (request('NumColab')){
+            $NumColab=$request['NumColab'];
          } else{
-            $documento = auth()->user()->documento;
+            $NumColab = auth()->user()->NumColab;
          }
-
-         //Si se quiere cambiar la foto
-         if (request('fotoPerfil')){
-              
-            Storage::delete('public/'.auth()->user()->foto);
-            $rutaImg = $request['fotoPerfil']->store('usuarios/', 'public');              
-           
-
-         }else{
-            $rutaImg=auth()->user()->foto;
-         }
+        
          //si se quiere actualizar la contraseña y cumple con la regla
          if(isset($datos["passwordN"])){
             DB::table('users')->where('id', auth()->user()->id)->update(['name'=>$datos["name"],
-            'email'=>$datos["email"], 'documento'=>$documento, 'foto'=>$rutaImg,
+            'email'=>$datos["email"], 'NumColab'=>$NumColab, 'departamento'=>$datos,
             'password'=>Hash::make(request("passwordN"))]);            
          }else{
             DB::table('users')->where('id', auth()->user()->id)->update(['name'=>$datos["name"],
-            'email'=>$datos["email"], 'documento'=>$documento, 'foto'=>$rutaImg]);
+            'email'=>$datos["email"], 'NumColab'=>$NumColab, 'departamento'=>$datos]);
          }
                
            return redirect('MiPerfil');
@@ -115,6 +112,8 @@ class UsuariosController extends Controller
         //validar los datos recibidos
         $datos = request()->validate([
             'name' => ['string', 'max:255'],
+            'departamento'=>['required', 'string', 'max:255'],
+            'NumColab' => ['required','string','max:255'],
             'rol' => ['required'],
             'email' => ['string', 'unique:users'],
             'password' => ['string', 'min:3']
@@ -123,11 +122,11 @@ class UsuariosController extends Controller
  //Crear el registro en la tabla users de la base de datos
         Usuarios::create([
             'name' => $datos['name'],
+            'departamento'=> $datos['departamento'],
+            'NumColab' => $datos ['NumColab'],
             'email' => $datos['email'],
             'rol' => $datos['rol'],
             'password' => Hash::make($datos['password']),
-            'documento' => '',
-            'foto' => ''
             ]); 
  
  //redireccionamos a la vista de usuarios, al llamar a la ruta Usuarios
@@ -175,12 +174,16 @@ class UsuariosController extends Controller
         if($usuario["email"] != request('email')){
            $datos=request()->validate([
             'name' => ['required'],
+            'departamento' => ['required'],
+            'NumColab' => ['required'],
             'rol' => ['required'],
             'email' => ['required', 'email', 'unique:users']
         ]);
          }else{
         $datos=request()->validate([
           'name' => ['required'],
+          'departamento' => ['required'],
+          'NumColab' => ['required'],
           'rol' => ['required'],
           'email' => ['required', 'email']
         ]);
@@ -190,11 +193,10 @@ class UsuariosController extends Controller
     }else{
         $clave=$usuario["password"];
          }
-         DB::table('users')->where('id', $usuario['id'])->update(['name'=>$datos["name"], 'email'=>$datos["email"], 'rol'=>$datos['rol'], 'password'=>Hash::make($clave)]);
+         DB::table('users')->where('id', $usuario['id'])->update(['name'=>$datos["name"], 'departamento'=>$datos["departamento"], 'NumColab'=>$datos["NumColab"], 'email'=>$datos["email"], 'rol'=>$datos['rol'], 'password'=>Hash::make($clave)]);
          return redirect('Usuarios');
     }
     
-
     /**
      * Remove the specified resource from storage.
      *
@@ -204,12 +206,13 @@ class UsuariosController extends Controller
     public function destroy($id)
     {
         $usuario = Usuarios::find($id);
-	    $exp = explode("/", $usuario->foto);
+	    $exp = explode("/", $usuario->NumColab);
 
-	if (Storage::delete('public/'.$usuario->foto)){
-	    Storage::deleteDirectory('public/'.$exp[0].'/'.$exp[1]);
-	}
+        if (strpos($usuario->NumColab, "/") !== false) {
+            $exp = explode("/", $usuario->NumColab);
+    }        
     Usuarios::destroy($id);
 	return redirect('Usuarios');
     }
+    
 }

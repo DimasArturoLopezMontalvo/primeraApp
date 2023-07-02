@@ -17,9 +17,9 @@
                        <thead>
                             <tr>
                                 <th>empleado</th>
-                                <th>Documento</th>
+                                <th>NumColab</th>
                                 <th>Fecha Nacimiento</th>
-                                <th>Dirección</th>
+                                <th>Departamento</th>
                                 <th>Telefono</th>
                                 <th></th>
                             </tr>
@@ -28,11 +28,11 @@
                              @foreach ($clientes as $cliente)
                             <tr>
                                 <td>{{$cliente->nombre}}</td>
-                                <td>{{$cliente->documento}}</td>
+                                <td>{{$cliente->NumColab}}</td>
                                 <td>{{$cliente->fechNac}}</td>
-                                <td>{{$cliente->direccion}}</td>
+                                <td>{{$cliente->departamento}}</td>
                                 <td>{{$cliente->telefono}}</td>
-                                <<td>
+                                <td>
                                     <a href="{{url('Editar-Cliente/'.$cliente->id)}}">
                                         <button class="btn btn-success"><i 
                                         class="fas fa-pencil-alt"></i></button>    
@@ -48,7 +48,6 @@
             </div>
         </div>
     </section>
-</div>
 <!-- Crear cliente -->
 <div class="modal fade" id="CrearCliente">
     <div class="modal-dialog">
@@ -64,9 +63,9 @@
                         </div>
 
                         <div class="form-group">
-                            <h2>Documento:</h2>
+                            <h2># Colaborador:</h2>
                             <input type="text" class="form-control input-lg" 
-                            name="documento" required="">
+                            name="NumColab" required="">
                         </div>
                         <div class="form-group">
                             <h2>Fecha Nacimiento:</h2>
@@ -74,9 +73,9 @@
                             name="fechNac" required=" ">
                         </div>
                         <div class="form-group">
-                            <h2>Dirección:</h2>
+                            <h2>Departamento:</h2>
                             <input type="text" class="form-control input-lg" 
-                            name="direccion" required="">
+                            name="departamento" required="">
                         </div>
                         <div class="form-group">
                             <h2>Teléfono:</h2>
@@ -114,9 +113,9 @@
                             </div>
 
                             <div class="form-group">
-                                <h2>Documento:</h2>
+                                <h2># Colaborador:</h2>
                                 <input type="text" class="form-control input-lg" 
-                                name="documento" required=""  value="{{$cli->documento}}">
+                                name="NumColab" required=""  value="{{$cli->NumColab}}">
                             </div>
                             <div class="form-group">
                                 <h2>Fecha Nacimiento:</h2>
@@ -124,9 +123,9 @@
                                 name="fechNac" required=" "  value="{{$cli->fechNac}}">
                             </div>
                             <div class="form-group">
-                                <h2>Dirección:</h2>
+                                <h2>Departamento:</h2>
                                 <input type="text" class="form-control input-lg" 
-                                name="direccion" required=""  value="{{$cli->direccion}}">
+                                name="departamento" required=""  value="{{$cli->departamento}}">
                             </div>
                             <div class="form-group">
                                 <h2>Teléfono:</h2>

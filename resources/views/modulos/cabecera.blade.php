@@ -16,7 +16,7 @@
       <li class="dropdown user user-menu">
         <a href="#" class="nav-link" data-toggle="dropdown">
           @if(auth()->user()->foto=="")
-            <img src="{{url('storage/userprofile.png')}}" class="user-image" alt="User Image">
+            <img src="{{url('../storage\app\public/userprofile.png')}}" class="user-image" alt="User Image">
           @else
             <img src="{{url('storage/'.auth()->user()->foto)}}" class="user-image" alt="User Image">
           @endif
@@ -24,11 +24,12 @@
         <ul class="dropdown-menu">
           <!-- User image -->
           <li class="user-header ">
-          @if(auth()->user()->foto=="")
-            <img src="{{url('storage/userprofile.png')}}" class="img-circle" alt="User Image">
+            @if(auth()->user()->foto == "" || auth()->user()->foto == null)
+            <img src="{{url('../storage/app/public/userprofile.png')}}" class="img-circle" alt="User Image">
           @else
             <img src="{{url('storage/'.auth()->user()->foto)}}" class="img-circle" alt="User Image">
           @endif
+          
             <p>
               {{auth()->user()->name}} - {{auth()->user()->rol}}
             </p>

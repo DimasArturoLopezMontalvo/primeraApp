@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\InicioController;
 use App\http\Controllers\UsuariosController;
 use App\http\Controllers\ClientesController;
-
+use App\Http\Controllers\EventosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,6 +41,10 @@ Route::post('/Clientes', [ClientesController::class, 'store']);
 Route::get('Editar-Cliente/{id}', [ClientesController::class, 'edit']);
 Route::put('actualizar-Cliente/{id}', [ClientesController::class,'update']);
 Route::get('Eliminar-Cliente/{id}', [ClientesController::class, 'destroy']);
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/Eventos', [EventosController::class, 'index']);
+Route::post('/Eventos', [EventosController::class, 'store']);
+Route::get('Editar-Evento/{id}', [EventosController::class, 'edit']);
+Route::put('actualizar-Evento/{id}', [EventosController::class,'update']);
+Route::get('Eliminar-Evento/{id}', [EventosController::class, 'destroy']);Route::get('/eventos', [EventosController::class, 'index'])->name('eventos.index');
+Route::get('/eventos', [EventosController::class, 'index'])->name('eventos.index');
+Route::get('/eventos/pdf', [EventosController::class, 'generarPDF'])->name('eventos.pdf');

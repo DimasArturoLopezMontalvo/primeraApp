@@ -42,8 +42,8 @@ class ClientesController extends Controller
             Clientes::create([
                 'nombre' => $datos['nombre'],
                 'telefono' => $datos['telefono'],
-                'documento' => $datos['documento'],
-                'direccion' => $datos['direccion'],
+                'NumColab' => $datos['NumColab'],
+                'departamento' => $datos['departamento'],
                 'fechNac' => $datos['fechNac'],
             ]);
 
@@ -78,11 +78,11 @@ class ClientesController extends Controller
         DB::table('clientes')->where('id', $datos['id'])->update([
             'nombre' => $datos['nombre'],
             'telefono' => $datos['telefono'],
-            'documento' => $datos['documento'],
-            'direccion' => $datos['direccion'],
+            'NumColab' => $datos['NumColab'],
+            'departamento' => $datos['departamento'],
             'fechNac' => $datos['fechNac'],
         ]);
-        return redirect('Clientes')->with('ClienteActualizado', 'OK');
+        return redirect('Clientes')->with('EmpleadoActualizado', 'OK');
     }
 
     /**

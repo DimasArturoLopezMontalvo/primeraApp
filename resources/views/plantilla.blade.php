@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link rel="icon" type="image/png" href="{{ asset('../storage/app/public/descarga.png') }}">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>EDR-EVENTOS</title>
@@ -142,7 +143,7 @@
     var Cid = $(this).attr('Cid');
     var Cliente = $(this).attr('Cliente');
     Swal.fire({
-      title: '¿Seguro que desea eliminar el Cliente: '+Cliente+'?',
+      title: '¿Seguro que desea eliminar el Empleado?: '+Cliente+'?',
       icon: 'warning',
       showCancelButton: true,
       cancelButtonText: 'Cancelar',
@@ -153,6 +154,24 @@
       if(result.isConfirmed){
     
         window.location = "{{url('Eliminar-Cliente/')}}/"+Cid;
+      }
+    })
+  });
+  $('.table').on('click','.EliminarEvento',function(){
+    var Eid = $(this).attr('Eid');
+    var Evento = $(this).attr('Evento');
+    Swal.fire({
+      title: '¿Seguro que desea eliminar el Evento: '+Evento+' '+Eid+'?',
+      icon: 'warning',
+      showCancelButton: true,
+      cancelButtonText: 'Cancelar',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar',
+      confirmButtonColor: '#3085d6',
+    }).then((result)=>{
+      if(result.isConfirmed){
+    
+        window.location = "{{url('Eliminar-Evento/')}}/"+Eid;
       }
     })
   });
@@ -167,18 +186,26 @@
       'success'
     );
   </script>
-@elseif(session('ClienteCreado')=='OK')
+@elseif(session('EventoCreado')=='OK')
   <script type="text/javascript">
     Swal.fire(
-      'El Cliente ha sido creado',
+      'Evento ha sido creado',
       '',
       'success'
     );
   </script>
-@elseif(session('ClienteActualizado')=='OK')
+@elseif(session('EmpleadoActualizado')=='OK')
   <script type="text/javascript">
     Swal.fire(
-      'El Cliente ha sido actualizado',
+      'El Empleado ha sido actualizado',
+      '',
+      'success'
+    );
+  </script>
+  @elseif(session('EventoActualizado')=='OK')
+  <script type="text/javascript">
+    Swal.fire(
+      'El Evento ha sido actualizado',
       '',
       'success'
     );
@@ -201,6 +228,12 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $('#EditarCliente').modal('toggle');
+  }); 
+</script>
+@elseif($exp[3]=='Editar-Evento')
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('#EditarEvento').modal('toggle');
   }); 
 </script>
 @endif 

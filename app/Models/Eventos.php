@@ -21,6 +21,7 @@ class Eventos extends Model
         'pax',
         'asistencia',
         'observaciones',
+        'observaciones',
     ];
     public $timestamps = false;
 }

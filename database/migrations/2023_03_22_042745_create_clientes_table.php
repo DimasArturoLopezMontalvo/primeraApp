@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('clientes', function (Blueprint $table){
             $table->id();
             $table->text('nombre');
-            $table->text('documento');
+            $table->text('NumColab');
             $table->text('fechNac');
-            $table->text('direccion');
+            $table->text('departamento');
             $table->text('telefono');
             });
         }

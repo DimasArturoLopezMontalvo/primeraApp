@@ -12,9 +12,9 @@ class Clientes extends Model
 
     protected $fillable = [
         'nombre',
-        'documento',
+        'NumColab',
         'fechNac',
-        'direccion',
+        'departamento',
         'telefono'
     ];
     public $timestamps = false;

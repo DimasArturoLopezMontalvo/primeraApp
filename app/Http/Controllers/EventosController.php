@@ -40,15 +40,17 @@ class EventosController extends Controller
         $datos = request();
 
             Eventos::create([
-                'fechaEvent' => $datos['fechaEvent'],
+                'fechEvent' => $datos['fechEvent'],
                 'nomEvent' => $datos['nomEvent'],
                 'Suite' => $datos['Suite'],
                 'NumColaborador' => $datos['NumColaborador'],
+                'NombreColaborador' => $datos['NombreColaborador'],
                 'puesto' => $datos['puesto'],
                 'pago' => $datos['pago'],
                 'pax' => $datos['pax'],
                 'asistencia' => $datos['asistencia'],
                 'observaciones' => $datos['observaciones'],
+                'firma' => '',
             ]);
 
             return redirect('Eventos')->with('EventoCreado', 'OK');
@@ -72,7 +74,7 @@ class EventosController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Clientes  $clientes
+     * @param  \App\Models\Eventos  $eventos
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -80,15 +82,17 @@ class EventosController extends Controller
         $datos = request();
 
         DB::table('eventos')->where('id', $datos['id'])->update([
-            'fechaEvent' => $datos['fechaEvent'],
+            'fechEvent' => $datos['fechEvent'],
             'nomEvent' => $datos['nomEvent'],
             'Suite' => $datos['Suite'],
             'NumColaborador' => $datos['NumColaborador'],
+            'NombreColaborador' => $datos['NombreColaborador'],
             'puesto' => $datos['puesto'],
             'pago' => $datos['pago'],
             'pax' => $datos['pax'],
             'asistencia' => $datos['asistencia'],
             'observaciones' => $datos['observaciones'],
+            'firma' => '',
         ]);
         return redirect('Eventos')->with('EventoActualizado', 'OK');
     }

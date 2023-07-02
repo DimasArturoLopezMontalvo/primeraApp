@@ -12,10 +12,10 @@ class Usuarios extends Model
 
     protected $fillable = [
         'name',
+        'departamento',
         'email',
         'password',
         'rol',
-        'foto',
-        'document'
+        'NumColab'
       ];
 }

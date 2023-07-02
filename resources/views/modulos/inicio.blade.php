@@ -3,7 +3,27 @@
 @section('contenido')
     <div style="background-color:#FFFFFF;" class="content-wrapper">
         <section class="content-header">
-            <h1>Dorado Royale</h1>
+<head>
+  <style>
+    /* Estilos CSS para el título */
+    .title {
+      font-size: 48px;
+      text-align: center;
+      animation: colorChange 2s infinite;
+    }
+
+    /* Estilos CSS para la animación de cambio de colores */
+    @keyframes colorChange {
+      0% { color: rgb(255, 183, 0); }
+      25% { color: rgb(255, 149, 0); }
+      50% { color: rgb(128, 58, 0); }
+      75% { color: orange; }
+      100% { color: rgb(128, 43, 0); }
+    }
+  </style>
+</head>
+  <h1 class="title">Bienvenido al sistema gestor de eventos "EDR EVENTOS"</h1>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,19 +50,19 @@
 <body>
   <div class="card-container">
     <div class="card">
-      <h3>Historial de Eventos</h3>
-      <p>Contenido de la primera tarjeta</p>
-      <p class="card-text"></p>
-    <a href="#" style="background-color: #FFAF33; color: white; border: 2px #FFAF33;" class="btn btn-primary">Abrir</a>
-    </div>
-    <div class="card">
-      <h3>Historial de pagos</h3>
+      <h3></h3>
       <p></p>
       <p class="card-text"></p>
     <a href="#" style="background-color: #FFAF33; color: white; border: 2px #FFAF33;" class="btn btn-primary">Abrir</a>
     </div>
     <div class="card">
-      <h3>Historial de recursos utilizados</h3>
+      <h3></h3>
+      <p></p>
+      <p class="card-text"></p>
+    <a href="#" style="background-color: #FFAF33; color: white; border: 2px #FFAF33;" class="btn btn-primary">Abrir</a>
+    </div>
+    <div class="card">
+      <h3></h3>
       <p></p>
       <p class="card-text"></p>
     <a href="#" style="background-color: #FFAF33; color: white; border: 2px #FFAF33;" class="btn btn-primary">Abrir</a>
